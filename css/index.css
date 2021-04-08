@@ -1,0 +1,115 @@
+@import url("../vendor/normalize.css");
+
+@font-face {
+  font-family: "Muller";
+  src: url("../fonts/MullerMedium.woff2") format("woff2"),
+    url("../fonts/MullerMedium.woff") format("woff");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Muller";
+  src: url("../fonts/MullerRegular.woff2") format("woff2"),
+    url("../fonts/MullerRegular.woff") format("woff");
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.page {
+  padding: 30px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "visuals parameters"
+    "visuals characteristics";
+  gap: 3px 5px;
+  background-color: #ebecf4;
+}
+
+.title {
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 1;
+  padding: 5px 8px;
+  font-size: 12px;
+  color: #767676;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-top: none;
+  border-radius: 0 4px 0 4px;
+  z-index: 1;
+}
+
+.label {
+  margin-bottom: 15px;
+  display: block;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.43;
+  color: #333;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.visuals {
+  position: relative;
+  grid-area: visuals;
+  width: 100%;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.43;
+  color: #333;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+.parameters {
+  padding: 23px;
+  position: relative;
+  grid-area: parameters;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.43;
+  color: #333;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+.characteristics {
+  padding: 23px;
+  position: relative;
+  grid-area: characteristics;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.43;
+  color: #333;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+.character {
+  display: inline-block;
+  padding: 1px 5px;
+  border: 1px solid rgb(118, 118, 118);
+  border-radius: 2px;
+}
