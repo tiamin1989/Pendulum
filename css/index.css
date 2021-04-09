@@ -15,7 +15,6 @@
   max-width: 1120px;
   padding: 30px;
   display: grid;
-  grid-gap: 10px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 45px 1fr 1fr;
   grid-template-areas:
@@ -24,6 +23,19 @@
     "visuals characteristics";
   gap: 3px 5px;
   background-color: #ebecf4;
+}
+
+@media all and (max-width: 1180px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-rows: 45px 1fr 1fr 1fr;
+    gap: 5px 5px;
+    grid-template-areas:
+      "title"
+      "visuals"
+      "parameters"
+      "characteristics";
+  }
 }
 
 .main-title {
@@ -71,17 +83,12 @@
   max-width: 50px;
 }
 
-.canvas-wrapper {
-}
-
 .visuals {
-  width: 90%;
+  width: 100%;
   height: 100%;
-  padding: 30px 28px;
   grid-area: visuals;
   background-color: #f5f5f5;
   border: 1px solid #ccc;
-  overflow-x: auto;
   border-radius: 4px;
 }
 

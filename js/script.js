@@ -19,6 +19,7 @@ const hesitations = document.querySelector("#hesitations");
 const coordinateX = document.querySelector("#coordinateX");
 
 function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.strokeStyle = "#000000";
   ctx.beginPath();
   ctx.moveTo(147, 125);
