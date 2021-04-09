@@ -8,29 +8,47 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body class="page">
-    <canvas class="visuals"> </canvas>
+    <h1 class="main-title">Пружинный маятник</h1>
+    <div class="canvas-wrapper">
+      <canvas class="visuals" id="visuals"> </canvas>
+    </div>
 
     <section class="parameters">
-      <h2 class="title">Параметры</h2>
+      <h2 class="section-title">Параметры</h2>
       <label class="label">
-        <span>Масса груза</span>
-        <input id="k" type="number" value="0.5" min="0.5" max="1" step="0.1" /> кг (m)
+        <span>Масса груза:</span>
+        <input id="k" type="number" value="0.5" min="0.5" max="1" step="0.1" />
+        кг (m)
       </label>
       <label class="label">
-        <span>Жесткость пружины</span>
-        <input id="m" type="number" value="5" min="5" max="9" step="1" /> Н/м (k)
+        <span>Жесткость пружины:</span>
+        <input id="m" type="number" value="5" min="5" max="9" step="1" /> Н/м
+        (k)
       </label>
       <label class="label">
-        <span>Первоначальное отклонение от равновесия (вниз)</span>
+        <span>Первоначальное отклонение от равновесия (вниз):</span>
         <input type="number" value="10" min="0" max="20" step="2" /> см (x0)
       </label>
     </section>
 
     <section class="characteristics">
-      <h2 class="title">Характеристики</h2>
+      <h2 class="section-title">Характеристики</h2>
       <label class="label">
-        <span>Циклическая частота собственных колебаний</span>
+        <span>Циклическая частота собственных колебаний:</span>
         <span class="character" id="frequency"></span> (f)
+      </label>
+      <label class="label">
+        <span>Время колебаний:</span>
+        <span class="character character_need-play" id="time"></span> сек (t)
+      </label>
+      <label class="label">
+        <span>Количество полных колебаний:</span>
+        <span class="character character_need-play" id="hesitations"></span> (h)
+      </label>
+      <label class="label">
+        <span>Координата X:</span>
+        <span class="character character_need-play" id="coordinateX"></span> см
+        (x)
       </label>
     </section>
   </body>
