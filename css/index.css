@@ -29,7 +29,7 @@
 .main-title {
   margin: 0;
   grid-area: title;
-  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-family: "JetBrains Mono", "Lucida Console", Monaco, monospace;
   font-size: 23px;
   display: flex;
   justify-content: center;
@@ -48,7 +48,7 @@
   border-top: none;
   border-radius: 0 4px 0 4px;
   z-index: 1;
-  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-family: "JetBrains Mono", "Lucida Console", Monaco, monospace;
   font-size: 13px;
   line-height: 1.43;
   color: #333;
@@ -57,14 +57,18 @@
 }
 
 .label {
-  margin-bottom: 15px;
+  margin: 12px 0 12px;
   display: block;
-  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-family: "JetBrains Mono", "Lucida Console", Monaco, monospace;
   font-size: 13px;
   line-height: 1.43;
   color: #333;
   font-weight: normal;
   font-style: normal;
+}
+
+.input {
+  max-width: 50px;
 }
 
 .canvas-wrapper {

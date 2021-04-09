@@ -18,7 +18,7 @@ const hesitations = document.querySelector("#hesitations");
 // Координата X (DOM)
 const coordinateX = document.querySelector("#coordinateX");
 
-function draw({}) {
+function draw() {
   ctx.strokeStyle = "#000000";
   ctx.beginPath();
   ctx.moveTo(147, 125);
