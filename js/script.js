@@ -20,11 +20,41 @@
   const coordinateX = document.querySelector("#coordinateX");
 
   function draw() {
+    /* Щетка (абстрактно) */
+    function drawBrush({ startPoint, tasselShift, tasselStep, tasselsCount }) {
+      let currentPosition = [...startPoint];
+
+      ctx.moveTo(...currentPosition); /* начальная */
+      ctx.lineTo(
+        currentPosition[0] + tasselShift[0],
+        tasselShift[1]
+      ); /* кисточка */
+      ctx.moveTo(...currentPosition); /* возврат на начальную */
+
+      for (let i = 1; i < tasselsCount; i++) {
+        currentPosition[0] = currentPosition[0] + tasselStep[0];
+        currentPosition[1] = currentPosition[1] + tasselStep[1];
+
+        ctx.lineTo(...currentPosition); /* шаг вправо, начальная */
+        ctx.lineTo(
+          currentPosition[0] + tasselShift[0],
+          tasselShift[1]
+        ); /* кисточка */
+        ctx.moveTo(...currentPosition); /* возврат на начальную */
+      }
+    }
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = "#000";
+    ctx.strokeStyle = "#4a4242";
     ctx.beginPath();
-    ctx.moveTo(28, 28);
-    ctx.lineTo(0, 0);
+
+    drawBrush({
+      startPoint: [70, 30],
+      tasselShift: [15, 10],
+      tasselStep: [15, 0],
+      tasselsCount: 11,
+    });
+
     ctx.stroke();
     ctx.closePath();
   }

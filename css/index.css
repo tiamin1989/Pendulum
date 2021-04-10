@@ -27,14 +27,21 @@
 
 @media all and (max-width: 1180px) {
   .page {
+    max-width: 745px;
     grid-template-columns: 1fr;
-    grid-template-rows: 45px 1fr 1fr 1fr;
+    grid-template-rows: 45px 1fr minmax(180px, 1fr) minmax(210px, 1fr);
     gap: 5px 5px;
     grid-template-areas:
       "title"
       "visuals"
       "parameters"
       "characteristics";
+  }
+}
+
+@media all and (max-width: 640px) {
+  .page {
+    padding: 10px;
   }
 }
 
@@ -93,7 +100,7 @@
 
 .visuals {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .parameters {
