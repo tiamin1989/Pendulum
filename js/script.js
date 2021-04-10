@@ -102,6 +102,7 @@
 
   function resizeCanvas() {
     ctx.canvas.width = canvasWrapper.offsetWidth;
+    ctx.canvas.height = canvasWrapper.offsetWidth * 0.7473118279569892;
     draw();
   }
 

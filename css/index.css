@@ -29,7 +29,8 @@
   .page {
     max-width: 745px;
     grid-template-columns: 1fr;
-    grid-template-rows: 45px 1fr minmax(180px, 1fr) minmax(210px, 1fr);
+    grid-template-rows: 45px 1fr -webkit-max-content -webkit-max-content;
+    grid-template-rows: 45px 1fr max-content max-content;
     gap: 5px 5px;
     grid-template-areas:
       "title"
@@ -124,7 +125,7 @@
 }
 
 .character {
-  min-height: 14px;
+  min-height: 15px;
   display: inline-block;
   padding: 1px 5px;
   border: 1px solid rgb(118, 118, 118);
