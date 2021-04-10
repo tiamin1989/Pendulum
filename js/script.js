@@ -24,7 +24,7 @@
 
   // Время колебаний
   const td = document.querySelector("#t");
-  let t = 2;
+  let t = 1;
 
   // Количество полных колебаний (DOM)
   const hd = document.querySelector("#h");
@@ -33,6 +33,9 @@
   // Координата X
   const xd = document.querySelector("#x");
   let x = x0 * Math.cos(w0 * t);
+
+  /* * 30 временно */
+  let d = Math.cbrt(m) * 30;
 
   const startPoint = [70, 30];
   const brushConf = {
@@ -83,11 +86,18 @@
       ctx.closePath();
     }
 
+    function drawMass() {
+      ctx.beginPath();
+      ctx.arc(100, 50, d, 0, Math.PI * 2, false);
+      ctx.stroke();
+    }
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.strokeStyle = strokeStyle;
 
     drawBrush(brushConf);
     drawSpring(springStartXPoint);
+    drawMass();
   }
 
   function resizeCanvas() {
@@ -100,7 +110,12 @@
     w0d.textContent = w0;
     draw();
 
-    xd.classList.toggle('character_need-play');
+    td.classList.toggle("character_need-play");
+    setInterval(() => {
+      td.textContent = t++;
+    }, 1000);
+
+    xd.classList.toggle("character_need-play");
     xd.textContent = x;
   }
 
