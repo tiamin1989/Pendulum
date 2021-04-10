@@ -1,23 +1,38 @@
 (function () {
   // Обертка canvas
   const canvasWrapper = document.querySelector(".canvas-wrapper");
-  // Холст (DOM)
+
+  // Холст
   const canvas = document.querySelector("#visuals");
   const ctx = canvas.getContext("2d");
-  // Жесткость пружины
-  const k = document.querySelector("#k").value;
+
   // Масса груза
-  const m = document.querySelector("#m").value;
+  const md = document.querySelector("#m");
+  let m = md.value;
+
+  // Жесткость пружины
+  const kd = document.querySelector("#k");
+  let k = kd.value;
+
+  // Первоначальное отклонение от равновесия
+  const x0d = document.querySelector("#x0");
+  let x0 = x0d.value;
+
   // Циклическая частота колебаний
-  const f = Math.sqrt(k / m);
-  // Циклическая частота колебаний (DOM)
-  const frequency = document.querySelector("#frequency");
-  // Время колебаний (DOM)
-  const time = document.querySelector("#time");
+  const w0d = document.querySelector("#w0");
+  let w0 = Math.sqrt(k / m);
+
+  // Время колебаний
+  const td = document.querySelector("#t");
+  let t = 2;
+
   // Количество полных колебаний (DOM)
-  const hesitations = document.querySelector("#hesitations");
-  // Координата X (DOM)
-  const coordinateX = document.querySelector("#coordinateX");
+  const hd = document.querySelector("#h");
+  let h;
+
+  // Координата X
+  const xd = document.querySelector("#x");
+  let x = x0 * Math.cos(w0 * t);
 
   const startPoint = [70, 30];
   const brushConf = {
@@ -58,14 +73,11 @@
       ctx.closePath();
     }
 
-    function drawSpring(springStartXPoint) {
+    function drawSpring(startXpoint) {
       ctx.beginPath();
-      ctx.moveTo(springStartXPoint, startPoint[1]); /* начальная */
+      ctx.moveTo(startXpoint, startPoint[1]); /* начальная */
       /* линия вниз до загибов пружины */
-      ctx.lineTo(
-        springStartXPoint,
-        startPoint[0] + 10
-      );
+      ctx.lineTo(startXpoint, startPoint[0] + 10);
 
       ctx.stroke();
       ctx.closePath();
@@ -74,10 +86,8 @@
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.strokeStyle = strokeStyle;
 
-
     drawBrush(brushConf);
     drawSpring(springStartXPoint);
-
   }
 
   function resizeCanvas() {
@@ -87,8 +97,11 @@
 
   function init() {
     resizeCanvas();
-    frequency.textContent = f;
+    w0d.textContent = w0;
     draw();
+
+    xd.classList.toggle('character_need-play');
+    xd.textContent = x;
   }
 
   document.addEventListener("DOMContentLoaded", init);
