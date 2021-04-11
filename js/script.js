@@ -45,7 +45,7 @@
     tasselsCount: 11,
   };
   const strokeStyle = "#4a4242";
-  const springStartXPoint =
+  const centerX =
     startPoint[0] + (brushConf.tasselStep[0] * brushConf.tasselsCount) / 2;
 
   function draw() {
@@ -76,28 +76,35 @@
       ctx.closePath();
     }
 
-    function drawSpring(startXpoint) {
+    function drawSpringLine(startXpoint, length) {
       ctx.beginPath();
       ctx.moveTo(startXpoint, startPoint[1]); /* начальная */
       /* линия вниз до загибов пружины */
-      ctx.lineTo(startXpoint, startPoint[0] + 10);
-
+      ctx.lineTo(startXpoint, startPoint[0] + length);
       ctx.stroke();
       ctx.closePath();
+      return {
+        startXpoint: startXpoint,
+        startYpoint: startPoint[0] + length,
+      };
     }
 
-    function drawMass() {
+    function drawMass(startXpoint, startYpoint) {
       ctx.beginPath();
-      ctx.arc(100, 50, d, 0, Math.PI * 2, false);
+      ctx.arc(startXpoint, startYpoint, d, 0, Math.PI * 2, false);
       ctx.stroke();
+    }
+
+    function drawSpring({ startXpoint, startYPoint }) {
+
     }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.strokeStyle = strokeStyle;
 
     drawBrush(brushConf);
-    drawSpring(springStartXPoint);
-    drawMass();
+    drawSpring(drawSpringLine(centerX, 10));
+    drawMass(160, 350);
   }
 
   function resizeCanvas() {
